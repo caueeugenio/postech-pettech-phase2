@@ -25,8 +25,7 @@
         "trailingComma": "all",
         "arrowParens": "always",
         "semi": false,
-        "endOfLine": "auto",
-        "camelCase": false
+        "endOfLine": "auto"
       }
     ],
     "camelcase": "off",
