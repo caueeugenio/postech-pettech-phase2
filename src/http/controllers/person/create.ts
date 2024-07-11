@@ -7,7 +7,7 @@ export async function create(request: FastifyRequest, reply: FastifyReply) {
   const registerBodySchema = z.object({
     cpf: z.string(),
     name: z.string(),
-    birth: z.date(),
+    birth: z.coerce.date(),
     email: z.string().email(),
   })
 
@@ -17,7 +17,7 @@ export async function create(request: FastifyRequest, reply: FastifyReply) {
     const personRepository = new PersonRepository()
     const createPersonUseCase = new CreatePersonUseCase(personRepository)
     await createPersonUseCase.handler({ cpf, name, birth, email })
-    return reply.status(201).send()
+    return reply.status(201).send('Usuário criado com sucesso!')
   } catch (error) {
     console.log(error)
     throw new Error('Internal server error')
