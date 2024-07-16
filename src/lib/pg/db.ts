@@ -6,7 +6,8 @@ const CONFIG = {
   user: env.DATABASE_USER,
   host: env.DATABASE_HOST,
   database: env.DATABASE_NAME,
-  port: env.PORT,
+  password: env.DATABASE_PASSWORD,
+  port: env.DATABASE_PORT,
 }
 class Database {
   private pool: Pool
