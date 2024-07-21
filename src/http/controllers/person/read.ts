@@ -1,4 +1,4 @@
-import { PersonRepository } from '@/repositories/person.repository'
+import { PersonRepository } from '@/repositories/pg/person.repository'
 import { CreatePersonUseCase } from '@/use-cases/create-person'
 import { FastifyReply, FastifyRequest } from 'fastify'
 import { z } from 'zod'
