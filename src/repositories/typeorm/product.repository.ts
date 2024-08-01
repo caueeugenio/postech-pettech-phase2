@@ -34,7 +34,7 @@ export class ProductRepository implements IProductRepository {
     return this.repository.save(product)
   }
 
-  async delete(id: number): Promise<void> {
+  async delete(id: string): Promise<void> {
     await this.repository.delete(id)
   }
 }
