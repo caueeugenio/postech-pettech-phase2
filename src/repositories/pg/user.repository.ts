@@ -27,4 +27,13 @@ export class UserRepository implements IUserRepository {
     )
     return result?.rows[0]
   }
+
+  public async findByUserName(username: string): Promise<IUser | undefined> {
+    const result = await database.clientInstance?.query<IUser>(
+      `SELECT * FROM "user".username = $1`,
+      [username],
+    )
+
+    return result?.rows[0]
+  }
 }

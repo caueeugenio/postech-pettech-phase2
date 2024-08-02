@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/bcryptjs": "2.4.6",
     "@types/node": "20.14.9",
     "@types/pg": "8.11.6",
     "@typescript-eslint/eslint-plugin": "6.21.0",
@@ -29,6 +30,8 @@
     "typescript": "5.5.2"
   },
   "dependencies": {
+    "@fastify/jwt": "8.0.1",
+    "bcryptjs": "2.4.3",
     "dotenv": "16.4.5",
     "fastify": "4.28.1",
     "pg": "8.12.0",
