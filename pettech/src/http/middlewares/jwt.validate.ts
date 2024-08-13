@@ -6,7 +6,7 @@ export async function validateJwt(
 ) {
   try {
     const routeFreeList = ['POST-/user', 'POST-/user/signin']
-    const validateRoute = `${request.method}-${request.routerPath}`
+    const validateRoute = `${request.method}-${request.routeOptions.url}`
 
     if (routeFreeList.includes(validateRoute)) return
 

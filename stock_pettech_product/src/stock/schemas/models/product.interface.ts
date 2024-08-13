@@ -2,5 +2,5 @@ export interface IProduct {
   id?: string;
   name: string;
   quantity: number;
-  relationIId: number;
+  relationId: string;
 }

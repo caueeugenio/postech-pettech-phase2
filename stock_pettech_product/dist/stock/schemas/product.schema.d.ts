@@ -5,7 +5,7 @@ export declare class Product implements IProduct {
     id: string;
     name: string;
     quantity: number;
-    relationIId: number;
+    relationId: string;
 }
 export declare const ProductSchema: mongoose.Schema<Product, mongoose.Model<Product, any, any, any, mongoose.Document<unknown, any, Product> & Product & {
     _id: mongoose.Types.ObjectId;

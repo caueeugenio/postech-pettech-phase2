@@ -30,7 +30,7 @@ export class UserRepository implements IUserRepository {
 
   public async findByUserName(username: string): Promise<IUser | undefined> {
     const result = await database.clientInstance?.query<IUser>(
-      `SELECT * FROM "user".username = $1`,
+      `SELECT * FROM "user" WHERE "user".username = $1`,
       [username],
     )
 

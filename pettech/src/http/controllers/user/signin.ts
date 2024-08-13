@@ -13,8 +13,11 @@ export async function signin(request: FastifyRequest, reply: FastifyReply) {
   const { username, password } = registerBodySchema.parse(request.body)
 
   const signinUseCase = makeSigninUseCase()
+
   const user = await signinUseCase.handler(username)
+
   const doestPasswordMatch = await compare(password, user.password)
+
   if (!doestPasswordMatch) {
     throw new InvalidCredentialsError()
   }
