@@ -6,7 +6,8 @@ const http_exception_filter_1 = require("./shared/filters/http-exception.filter"
 async function bootstrap() {
     const app = await core_1.NestFactory.create(app_module_1.AppModule);
     app.useGlobalFilters(new http_exception_filter_1.HttpExceptionFilter());
-    await app.listen(Number(process.env.PORT) || 3000);
+    console.log('PORT', process.env.PORT);
+    await app.listen(Number(process.env.PORT) || 3010);
 }
 bootstrap();
 //# sourceMappingURL=main.js.map
