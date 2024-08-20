@@ -9,12 +9,16 @@ interface IStock {
 export async function createProductInStock(product: IStock, token: string) {
   const response = await fetch('http://localhost:3010/stock', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json', Authorization: token },
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: token,
+    },
     body: JSON.stringify(product),
   })
-
+  console.log(response)
   if (!response.ok) {
-    throw new Error(`Failed creating product in stock ${response.status}`)
+    throw new Error(`Failed to create product in stock ${response.status}`)
   }
+
   return response
 }
