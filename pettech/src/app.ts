@@ -14,14 +14,15 @@ import { validateJwt } from './http/middlewares/jwt.validate'
 export const app = fastify() // estamos inicializando o fastify
 app.register(fastifyJwt, {
   secret: env.JWT_SECRET,
-  sign: {
-    expiresIn: '10m',
-  },
+  sign: { expiresIn: '10m' },
 })
+
 app.addHook('onRequest', validateJwt)
+
 app.register(personRoutes)
 app.register(userRoutes)
 app.register(addressRoutes)
 app.register(productRoutes)
 app.register(categoryRoutes)
+
 app.setErrorHandler(globalErrorHandler)

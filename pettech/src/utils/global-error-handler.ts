@@ -36,6 +36,7 @@ export const globalErrorHandler = (
   }
 
   const handler = errorHandlerMap[error.constructor.name]
+
   if (handler) return handler(error, _, reply)
 
   return reply.status(500).send({ message: 'Internal server error' })
