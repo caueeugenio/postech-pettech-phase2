@@ -14,5 +14,5 @@ RUN echo "MONGO_URI=${MONGO_URI}" > .env
 RUN echo "JWT_SECRET=${JWT_SECRET}}" > .env
 RUN npm i -g pnpm
 RUN pnpm build
-EXPOSE 3000
+EXPOSE 3010
 CMD ["node", "dist/main"]
