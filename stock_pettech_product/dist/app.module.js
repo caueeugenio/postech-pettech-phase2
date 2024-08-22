@@ -14,12 +14,14 @@ const stock_module_1 = require("./stock/stock.module");
 const mongoose_1 = require("@nestjs/mongoose");
 const jwt_1 = require("@nestjs/jwt");
 const config_1 = require("@nestjs/config");
+const nestjs_prometheus_1 = require("@willsoto/nestjs-prometheus");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
 exports.AppModule = AppModule = __decorate([
     (0, common_1.Module)({
         imports: [
+            nestjs_prometheus_1.PrometheusModule.register(),
             config_1.ConfigModule.forRoot({
                 isGlobal: true,
             }),

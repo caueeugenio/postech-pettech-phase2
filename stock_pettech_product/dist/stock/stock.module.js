@@ -14,6 +14,7 @@ const product_repository_1 = require("./repositories/product.repository");
 const product_mongoose_repository_1 = require("./repositories/mongoose/product-mongoose-repository ");
 const stock_service_1 = require("./services/stock.service");
 const stock_controller_1 = require("./controllers/stock.controller");
+const prometheus_service_1 = require("../shared/services/prometheus.service");
 let StockModule = class StockModule {
 };
 exports.StockModule = StockModule;
@@ -22,15 +23,14 @@ exports.StockModule = StockModule = __decorate([
         imports: [
             mongoose_1.MongooseModule.forFeature([{ name: product_schema_1.Product.name, schema: product_schema_1.ProductSchema }]),
         ],
-        controllers: [
-            stock_controller_1.StockController,
-        ],
+        controllers: [stock_controller_1.StockController],
         providers: [
             {
                 provide: product_repository_1.ProductRepository,
                 useClass: product_mongoose_repository_1.ProductMongooseRepository,
             },
             stock_service_1.StockService,
+            prometheus_service_1.PrometheusService,
         ],
     })
 ], StockModule);

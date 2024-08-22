@@ -17,8 +17,8 @@ const common_1 = require("@nestjs/common");
 const stock_service_1 = require("../services/stock.service");
 const zod_validation_pipe_1 = require("../../shared/pipe/zod-validation.pipe");
 const zod_1 = require("zod");
-const auth_guard_1 = require("../../shared/guards/auth.guard");
 const logging_interceptor_1 = require("../../shared/interceptors/logging.interceptor");
+const swagger_1 = require("@nestjs/swagger");
 const createStockSchema = zod_1.z.object({
     name: zod_1.z.string(),
     quantity: zod_1.z.coerce.number(),
@@ -64,7 +64,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], StockController.prototype, "getStock", null);
 __decorate([
-    (0, common_1.UseGuards)(auth_guard_1.AuthGuard),
+    (0, swagger_1.ApiBearerAuth)(),
     (0, common_1.UsePipes)(new zod_validation_pipe_1.ZodValidationPipe(createStockSchema)),
     (0, common_1.Post)(),
     __param(0, (0, common_1.Body)()),
@@ -88,6 +88,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], StockController.prototype, "deleteStock", null);
 exports.StockController = StockController = __decorate([
+    (0, swagger_1.ApiTags)('stock'),
     (0, common_1.UseInterceptors)(logging_interceptor_1.LoggingInterceptor),
     (0, common_1.Controller)('stock'),
     __metadata("design:paramtypes", [stock_service_1.StockService])
